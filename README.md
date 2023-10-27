@@ -42,5 +42,7 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 
 ## SQLAlchemy and Flask Integration
 
-## Issues
+## Database Migrations with Alembic
+
+## Errors
 + tables were not populating with fake data, after searching up the error message that popped up, realized it was because i had set gender to a max of 10 characters but one of the options I put was 11. Error was fixed once I replaced it with a new option. 
