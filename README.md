@@ -105,7 +105,6 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 + Password: store in vault... and enter respective passwords
 + Select "Test Connection" to see if everything has been entered correctly
 + If successful, click "OK"
-+ 
   
 **To Generate ERD:**
 
@@ -169,6 +168,34 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
   ![AZURE Preferencespage](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Screenshots%20Azure%20Flask/azurepreferences.png)
 
 ## Database Migrations with Alembic
+
+### GCP: 
+
++ In the terminal run <code>alembic init migrations</code> and this will generate a folder labled "migrations" and a file named "alembic.ini"
++ In "alemic.ini", scroll down to find <code>sqlalchemy.url =</code> and edit the URL to <code>mysql+pymysql://root:[password]@[public-ip-of-instance]/[db-name]</code> for GCP
++ Add "alembic.ini" to .gitignore to protect private information 
++ In the "migrations" folder, there is a file named "env.py"
++ Around line 19 in "env.py", edit to <code>from [db.py-file-name] import Base</code>
++ Edit in <code>target_metadata = Base.metadata</code> and comment out <code>target_metadata = None</code>
++ Go back to terminal and run: <code>alembic revision --autogenerate -m "create tables"</code> to create a migration
++ Run <code>alembic upgrade head</code> to run the migration
++ Run <code>alembic upgrade head --sql > migration.sql</code> to create and save the migration into a "migration.sql" file
++ Go to the database file (in this case, it's gcpDB.py) and make any changes to any of the tables
+    + Changes can include creating or deleting tables and columns
++ After making a change, go back into the termimal and rerun code starting from: <code>alembic revision --autogenerate -m "create tables"</code>
++ Run <code>alembic upgrade head</code> to run the migration
++ Run <code>alembic upgrade head --sql > migration.sql</code> to save the changes and migrations into "migration.sql" file
++ If the changes are successful, it will be recorded in "migration.sql"
++ Another way to see if changes are successful, renter the MySQL monitor with <code>mysql -u root -h[ip-address] -p [password]</code>
++ To select database to use: <code>use [database-name];</code>
++ To see a list of tables in the database: <code>show tables;</code>
++ To see a list of column names in a specific table: <code>describe [table-name];</code>
++ To exit from MySQL monitor: <code>exit</code>
+
+### Azure: 
+
++ Steps are the same as for GCP except in "alemic.ini", the URL should be edited to <code>mysql+pymysql://[server-username]:[password]@[server-name]/[db-name]</code> for AZURE
++ Also for entering the MySQL monitor, use: <code>mysql -u [username] -h[server-name] -p [password]</code>
 
 ## Errors
 + tables were not populating with fake data, after searching up the error message that popped up, realized it was because i had set gender to a max of 10 characters but one of the options I put was 11. Error was fixed once I replaced it with a new option. 
