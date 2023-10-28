@@ -39,6 +39,9 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 ## Database Schema and Data Creation 
 
 ### GCP:
+
+**Create Database Schema:**
+
 + In Shell environment, first make sure all the necessary packages are installed with <code>pip install sqlalchemy alembic mysql-connector-python pymysql</code>
 + Create a .py file that indicates it is for database creation: [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py)
 + Create a .env file to hold login credentials to access the cloud mySQL instance
@@ -50,14 +53,18 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
     + The GCP URL should be in this format: <code>mysql+pymysql://root:[password]@[public-ip-of-instance]/[db-name]</code>
 + See [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py) for a step by step process of the above.
   
-To check if the tables have been successfully created:
+**To check if the tables have been successfully created:**
+
 + Connect to MySQL server with <code>mysql -u root -h[ip-address] -p [password]</code>
 + To select database to use: <code>use [database-name];</code>
 + To see a list of tables in the database: <code>show tables;</code> 
 + To exit from MySQL monitor: <code>exit</code> 
+
+**To Populate Tables With Sample Fake Data:**
+
 +
 
-**Azure:** 
+### Azure: 
 
 ## Using MySQL Workbench to Generate ERD
 
