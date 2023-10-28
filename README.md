@@ -75,9 +75,51 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 
 ### Azure: 
 
-+ Same steps as with 
+**Create Database Schema:**
+
++ Follow the same steps as for GCP
++ However, the AZURE URL should be in this format: <code>mysql+pymysql://[azure-server-username]:[password]@[server-name]/[db-name]</code>
++ See [azureDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Azure/azureDB.py) for the step by step process
+
+**To check if the tables have been successfully created:**
+
++ Connect to MySQL server with <code>mysql -u [username] -h[server-name] -p [password]</code>
++ Same steps as with GCP
+
+**To Populate Tables With Sample Fake Data:**
+
++ Same steps as for GCP but with the AZURE URL format
 
 ## Using MySQL Workbench to Generate ERD
+
+**To Create Connection:**
+
++ In Workbench, create a new connection
++ Create a connection name
++ Hostname:
+    + GCP: [public-ip-address]
+    + AZURE: [server-name]
++ Username:
+    + GCP: leave as root
+    + AZURE: [server-username]
++ Password: store in vault... and enter respective passwords
++ Select "Test Connection" to see if everything has been entered correctly
++ If successful, click "OK"
++ 
+  
+**To Generate ERD:**
+
++ In top menu bar, select "Database"
++ Select "Reverse Engineer..."
++ Stored connection: name of current connection
++ Go "Next"
++ Select Schema
++ Go "Next"
++ Execute and finish
++ Scroll down to tables and double click on the dotted line connecting the tables
++ In Relationships tab, go to "Foreign Key"
++ Under Cardinality, select "One-to-One"
++ Save a picutre of the completed ERD: [GCP ERD](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Screenshots%20ERD/gcphha5044c.png), [AZURE ERD](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Screenshots%20ERD/azurehha504c.png)
 
 ## SQLAlchemy and Flask Integration
 
