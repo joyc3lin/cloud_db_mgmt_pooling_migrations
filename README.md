@@ -44,13 +44,11 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 + Import necessary packages into file: 
   
 ```python
-{
-    from sqlalchemy import create_engine, inspect, Column, Integer, String, Date, ForeignKey
-    from sqlalchemy.orm import relationship
-    from sqlalchemy.ext.declarative import declarative_base
-    import os 
-    from dotenv import load_dotenv
-}
+from sqlalchemy import create_engine, inspect, Column, Integer, String, Date, ForeignKey
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+import os 
+from dotenv import load_dotenv
 ```
 + create tables with SQLAlchemy:
 
