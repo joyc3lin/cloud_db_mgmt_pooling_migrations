@@ -43,61 +43,19 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 + Create a .py file that indicates it is for database creation: [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py)
 + Create a .env file to hold login credentials to access the cloud mySQL instance
 + Create a .gitignore file to hide the .env file once the files are pushed to Github
-+ Import necessary packages into gcpDB.py file: 
-```python
-from sqlalchemy import create_engine, inspect, Column, Integer, String, Date, ForeignKey
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
-import os 
-from dotenv import load_dotenv
-```
-+ Load in credentials from .env file and create a base:
-```python
-load_dotenv()
-GCPURL = os.getenv("GCP")
-
-Base = declarative_base()
-```
-+ create tables with SQLAlchemy:
-```python
-class Patient(Base):
-    __tablename__ = 'patients'
-
-    id = Column(Integer, primary_key=True)
-    first_name = Column(String(50), nullable=False)
-    last_name = Column(String(50), nullable=False)
-    date_of_birth = Column(Date, nullable=False)
-    gender = Column(String(10), nullable=False)
-    email = Column(String(100))
-    language_spoken = Column(String(100))
-
-
-    preferences = relationship('Preferences', back_populates='patient')
-
-class Preferences(Base):
-    __tablename__ = 'patient_preferences'
-
-    id = Column(Integer, primary_key=True)
-    patient_id = Column(Integer, ForeignKey('patients.id'), nullable=False)
-    favorite_food = Column(String(200), nullable=False)
-    favorite_shows = Column(String(200))
-    hobbies = Column(String(200))
-    toothpaste_flavor = Column(String(100))    
-
-    patient = relationship('Patient', back_populates='preferences') 
-```
-+ Create an engine to connect to the cloud database:
-    + The GCP URL should be in this format: <code> mysql+pymysql://root:[passowrd]@[public-ip-of-instance]/[db-name]</code>
-```python
-engine = create_engine(GCPURL,
-    connect_args={'ssl': {'ssl-mode':'preferred'}},
-)   
-```
-+ connect my sql server w <code>mysql -u root -h[ip-address] -p [password] </code>
-+ use database name (to select database)
-+ show table to see if they populated 
-+ exit out w exit 
-+ make sure alembic is installed, if not, use pip install sqlalchemy alembic mysql-connector-python pymysql
++ Import necessary packages into gcpDB.py file
++ Load in credentials from .env file and create a base
++ create tables with SQLAlchemy
++ Create an engine to connect to the cloud database
+    + The GCP URL should be in this format: <code>mysql+pymysql://root:[password]@[public-ip-of-instance]/[db-name]</code>
++ See [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py) for a step by step process of the above.
+  
+To check if the tables have been successfully created:
++ Connect to MySQL server with <code>mysql -u root -h[ip-address] -p [password]</code>
++ To select database to use: <code>use [database-name];</code>
++ To see a list of tables in the database: <code>show tables;</code> 
++ To exit from MySQL monitor: <code>exit</code> 
++
 + <code>alembic init migrations</code> named migrations 
 
 **Azure:** 
