@@ -53,7 +53,6 @@ from dotenv import load_dotenv
 + create tables with SQLAlchemy:
 
 ```python
-{
 class Patient(Base):
     __tablename__ = 'patients'
 
@@ -78,9 +77,7 @@ class Preferences(Base):
     hobbies = Column(String(200))
     toothpaste_flavor = Column(String(100))    
 
-    patient = relationship('Patient', back_populates='preferences')
-}
-    
+    patient = relationship('Patient', back_populates='preferences') 
 ```
 + connect my sql server w <code>mysql -u root -h[ip-address] -p [password] </code>
 + use database name (to select database)
