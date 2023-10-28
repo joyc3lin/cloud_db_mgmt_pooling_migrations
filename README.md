@@ -71,7 +71,7 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 + Generate and insert fake data
 + Commit the session and close it
 + See [gcpPopulate.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpPopulate.py) for a step by step process of the above
-+ To see if tables have been successfully populated, enter the MySQL monitor again following the steps listed under **To check if the tables have been successfully created:**
++ To see if tables have been successfully populated, enter the MySQL monitor again following the steps listed under "**To check if the tables have been successfully created:**"
 
 ### Azure: 
 
