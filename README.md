@@ -123,6 +123,25 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 
 ## SQLAlchemy and Flask Integration
 
+### GCP:
+
++ Create a new folder for the GCP Flask app and in it, create an app.py file, .env file, and a .gitignore file
+    + Load the same GCP URL credentials from before into the .env file and put the .env file into .gitignore
++ In the app.py file, load in the env credentials and create an engine to connect to the GCP database
++ Create an app with Flask with an appropriate amount of routes matching the number of tables in the database
++ See [gcpApp.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCPFlask/gcpApp.py) for an example 
++ In the folder, create a "templates" folder to stylize the Flask app
+    + [gcpbase.html](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCPFlask/templates/gcpbase.html) stylizes the homepage of the flask app
+    + [gcppatients.html](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCPFlask/templates/gcppatients.html) stylizes the patients table page of the flask app
+    + [gcppreferences.html](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCPFlask/templates/gcppreferences.html) stylizes the patients' preferences page of the flask app
++ Following the templates created, the finalized Flask app looks like this:
+    + [GCP Homepage](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Screenshots%20GCP%20Flask/gcpbase.png)
+    + 
+
+### Azure: 
+
+
+
 ## Database Migrations with Alembic
 
 ## Errors
