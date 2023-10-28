@@ -135,7 +135,7 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
     + [gcppatients.html](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCPFlask/templates/gcppatients.html) stylizes the patients table page of the flask app
     + [gcppreferences.html](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCPFlask/templates/gcppreferences.html) stylizes the patients' preferences page of the flask app
 + Following the templates created, the finalized Flask app looks like this:
-    + [GCP Homepage](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Screenshots%20GCP%20Flask/gcpbase.png)
+    + [!GCP Homepage](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Screenshots%20GCP%20Flask/gcpbase.png)
     + 
 
 ### Azure: 
