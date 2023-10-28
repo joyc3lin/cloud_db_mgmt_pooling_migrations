@@ -38,9 +38,10 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 
 ## Database Schema and Data Creation 
 
-**GCP:**  
+**GCP:** 
 + In Shell environment, first make sure all the necessary packages are installed with <code>pip install sqlalchemy alembic mysql-connector-python pymysql</code>
-+ create a .py file that indicates it is for database creation: [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py)\
++ create a .py file that indicates it is for database creation: [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py)
++ Import necessary packages into file: 
   
 ```python
 {
@@ -51,7 +52,38 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
     from dotenv import load_dotenv
 }
 ```
-+ after creating tables
++ create tables with SQLAlchemy:
+
+```python
+{
+class Patient(Base):
+    __tablename__ = 'patients'
+
+    id = Column(Integer, primary_key=True)
+    first_name = Column(String(50), nullable=False)
+    last_name = Column(String(50), nullable=False)
+    date_of_birth = Column(Date, nullable=False)
+    gender = Column(String(10), nullable=False)
+    email = Column(String(100))
+    language_spoken = Column(String(100))
+
+
+    preferences = relationship('Preferences', back_populates='patient')
+
+class Preferences(Base):
+    __tablename__ = 'patient_preferences'
+
+    id = Column(Integer, primary_key=True)
+    patient_id = Column(Integer, ForeignKey('patients.id'), nullable=False)
+    favorite_food = Column(String(200), nullable=False)
+    favorite_shows = Column(String(200))
+    hobbies = Column(String(200))
+    toothpaste_flavor = Column(String(100))    
+
+    patient = relationship('Patient', back_populates='preferences')
+}
+    
+```
 + connect my sql server w <code>mysql -u root -h[ip-address] -p [password] </code>
 + use database name (to select database)
 + show table to see if they populated 
