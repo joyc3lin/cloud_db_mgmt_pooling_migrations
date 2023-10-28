@@ -38,7 +38,7 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 
 ## Database Schema and Data Creation 
 
-#### GCP:
+### GCP:
 + In Shell environment, first make sure all the necessary packages are installed with <code>pip install sqlalchemy alembic mysql-connector-python pymysql</code>
 + Create a .py file that indicates it is for database creation: [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py)
 + Create a .env file to hold login credentials to access the cloud mySQL instance
