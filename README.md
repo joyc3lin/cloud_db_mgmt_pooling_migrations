@@ -62,7 +62,7 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 
 **To Populate Tables With Sample Fake Data:**
 
-+
++ Create another .py file that indicates it is for populating the tables: [gcpPopulate.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpPopulate.py)
 
 ### Azure: 
 
