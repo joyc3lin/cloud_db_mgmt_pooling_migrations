@@ -40,9 +40,10 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 
 **GCP:** 
 + In Shell environment, first make sure all the necessary packages are installed with <code>pip install sqlalchemy alembic mysql-connector-python pymysql</code>
-+ create a .py file that indicates it is for database creation: [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py)
-+ Import necessary packages into file: 
-  
++ Create a .py file that indicates it is for database creation: [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py)
++ Create a .env file to hold login credentials to access the cloud mySQL instance
++ Create a .gitignore file to hide the .env file once the files are pushed to Github
++ Import necessary packages into gcpDB.py file: 
 ```python
 from sqlalchemy import create_engine, inspect, Column, Integer, String, Date, ForeignKey
 from sqlalchemy.orm import relationship
@@ -50,8 +51,14 @@ from sqlalchemy.ext.declarative import declarative_base
 import os 
 from dotenv import load_dotenv
 ```
-+ create tables with SQLAlchemy:
++ Load in credentials from .env file and create a base:
+```python
+load_dotenv()
+GCPURL = os.getenv("GCP")
 
+Base = declarative_base()
+```
++ create tables with SQLAlchemy:
 ```python
 class Patient(Base):
     __tablename__ = 'patients'
@@ -79,6 +86,7 @@ class Preferences(Base):
 
     patient = relationship('Patient', back_populates='preferences') 
 ```
+
 + connect my sql server w <code>mysql -u root -h[ip-address] -p [password] </code>
 + use database name (to select database)
 + show table to see if they populated 
