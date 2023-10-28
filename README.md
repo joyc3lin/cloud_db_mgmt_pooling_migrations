@@ -4,7 +4,7 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 ## Connection Pooling Set Up 
 
 **GCP:**  
-+ In SQL, create a new mySQL database engine
++ In SQL, create a new mySQL instance 
 + Create a name and password
 + Cloud DQL edition: Enterprise 
 + Preset: Sandbox 
@@ -12,22 +12,35 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 + Machine Configuration: Shared core, 1 vCPU, 0.614 GB
 + Connections: add network named "Allow All" set to <code>0.0.0.0/0</code>
 + Create Instance
++ After successful instance creation, go to left menu bar and select "Databases"
+    + Create a new database
+    + Name the database
+    + Character set: utf8
+    + Coallation: Default
 
 **Azure:** 
-+ In Azure Database for MySQL servers, create new Flexible server
-+ select resource group
++ In Azure Database for MySQL servers, create a new Flexible server
++ select a resource group
 + Compute + storage: standard b1s
-+ availabilty: no preference 
-+ username and password 
-+ Networking: + Add 0.0.0.0 - 255.255.255.255
++ Availabilty: no preference 
++ Create a username and password 
++ Networking: Select <code>+ Add 0.0.0.0 - 255.255.255.255</code>
 + Review + create
-+ server parameters:
-    + max connenctions: 20
-    + connect timeouts: 3
++ After successful instance creation, go to left menu bar and select "Server Parameters":
+    + Max_connenctions: 20
+    + Connect_timeout: 3
+    + require_secure_transport: OFF 
++ In the same menu bar, go to "Databases"
+    + Add a new database
+    + Name the database
+    + Character set: utf8
+    + Collation: utf8-general-ci
 
 ## Database Schema and Data Creation 
 
 **GCP:**  
++ In Shell environment, first make sure all the necessary packages are installed with <code>pip install sqlalchemy alembic mysql-connector-python pymysql</code>
++ create a .py file that indicates it is for database creation: [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py)
 + after creating tables
 + connect my sql server w <code>mysql -u root -h[ip-address] -p [password] </code>
 + use database name (to select database)
