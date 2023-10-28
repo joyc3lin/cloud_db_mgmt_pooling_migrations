@@ -148,7 +148,25 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 
 ### Azure: 
 
++ Create a new folder for the AZURE Flask app and in it, create an app.py file, .env file, and a .gitignore file
+    + Load the same GCP URL credentials from before into the .env file and put the .env file into .gitignore
++ In the app.py file, load in the env credentials and create an engine to connect to the AZURE database
++ Create an app with Flask with an appropriate amount of routes matching the number of tables in the database
++ See [AzureApp.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/AzureFlask/AzureApp.py) for an example 
++ In the folder, create a "templates" folder to stylize the Flask app
+    + [azurebase.html](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/AzureFlask/templates/azurebase.html) stylizes the homepage of the flask app
+    + [azurepatients.html](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/AzureFlask/templates/azurepatients.html) stylizes the patients table page of the flask app
+    + [azurepreferences.html](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/AzureFlask/templates/azurepreferences.html) stylizes the patients' preferences page of the flask app
++ Following the templates created, the finalized Flask app looks like this:
+  
+  Home page
+  ![AZURE Homepage](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Screenshots%20Azure%20Flask/azurehome.png)
+  
+  Patients Page
+  ![AZURE Patientpage](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Screenshots%20Azure%20Flask/azurepatients.png)
 
+  Preferences Page
+  ![AZURE Preferencespage](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/Screenshots%20Azure%20Flask/azurepreferences.png)
 
 ## Database Migrations with Alembic
 
