@@ -86,7 +86,13 @@ class Preferences(Base):
 
     patient = relationship('Patient', back_populates='preferences') 
 ```
-
++ Create an engine to connect to the cloud database:
+    + The GCP URL should be in this format: <code> mysql+pymysql://root:[passowrd]@[public-ip-of-instance]/[db-name]</code>
+```python
+engine = create_engine(GCPURL,
+    connect_args={'ssl': {'ssl-mode':'preferred'}},
+)   
+```
 + connect my sql server w <code>mysql -u root -h[ip-address] -p [password] </code>
 + use database name (to select database)
 + show table to see if they populated 
