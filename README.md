@@ -197,5 +197,12 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 + Steps are the same as for GCP except in "alemic.ini", the URL should be edited to <code>mysql+pymysql://[server-username]:[password]@[server-name]/[db-name]</code> for AZURE
 + Also for entering the MySQL monitor, use: <code>mysql -u [username] -h[server-name] -p [password]</code>
 
-## Errors
+## Documentations and Errors
+
+**Rationale**
+
+The database schema structure consists of two tables, a "Patients" and "Patients' Preferences" table. The ""Patients' Preferences" table has a foreign key named "patient_id" connecting it to the "Patients" table. These tables were chosen with the purpose of the former representing crucial information such patients demographics and contact information while the latter contains less essential information about the patients' likes. 
+
+**Errors**
+
 + tables were not populating with fake data, after searching up the error message that popped up, realized it was because i had set gender to a max of 10 characters but one of the options I put was 11. Error was fixed once I replaced it with a new option. 
