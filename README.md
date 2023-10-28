@@ -51,7 +51,7 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 + create tables with SQLAlchemy
 + Create an engine to connect to the cloud database
     + The GCP URL should be in this format: <code>mysql+pymysql://root:[password]@[public-ip-of-instance]/[db-name]</code>
-+ See [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py) for a step by step process of the above.
++ See [gcpDB.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpDB.py) for a step by step process of the above
   
 **To check if the tables have been successfully created:**
 
@@ -63,8 +63,19 @@ Gain practical experience in managing a cloud-based MySQL database with a focus 
 **To Populate Tables With Sample Fake Data:**
 
 + Create another .py file that indicates it is for populating the tables: [gcpPopulate.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpPopulate.py)
++ Import necessary packages into gcpPopulate.py file
++ Load in credentials from .env file and create a database engine
++ Create a session to interact with the database
++ Create a faker instance to fill table with fake information
++ Create functions to generate fake data for the tables in the database
++ Generate and insert fake data
++ Commit the session and close it
++ See [gcpPopulate.py](https://github.com/joyc3lin/cloud_db_mgmt_pooling_migrations/blob/main/GCP/gcpPopulate.py) for a step by step process of the above
++ To see if tables have been successfully populated, enter the MySQL monitor again following the steps listed under **To check if the tables have been successfully created:**
 
 ### Azure: 
+
++ Same steps as with 
 
 ## Using MySQL Workbench to Generate ERD
 
